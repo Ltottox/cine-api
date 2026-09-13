@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import client from "./src/common/db.js";
 import peliculaRoutes from "./src/common/pelicula/pelicula.routes.js"; 
+import actorRoutes from "./src/common/actor/actor.routes.js";
 
 // Configuración del servidor
 const app = express();    //instancia de la aplicación Express
@@ -14,7 +15,7 @@ app.use(express.json());//middleware que permite recibir datos en formato JSON e
 app.use(express.urlencoded({ extended: true }));//middleware para analizar el cuerpo de las solicitudes con codificación URL
 
 app.use("/api", peliculaRoutes);//Ruta personalizada con el prefijo /api
-
+app.use("/api", actorRoutes);//Ruta personalizada con el prefijo /api 
 // Ruta Raíz
 app.get("/", (req, res) => {// Ruta raíz que responde con un mensaje de bienvenida
   res.send("Bienvenido al cine Iplacex");
