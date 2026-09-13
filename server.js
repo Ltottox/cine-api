@@ -6,7 +6,8 @@ import actorRoutes from "./src/common/actor/actor.routes.js";
 
 // Configuración del servidor
 const app = express();    //instancia de la aplicación Express
-const port = 3000;// Puerto en el que se ejecutará el servidor
+const port = process.env.PORT || 3000;// Puerto asignado por Render o 3000 en entorno local
+
 
 
 // Configuración de middlewares
